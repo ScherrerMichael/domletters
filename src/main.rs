@@ -1,3 +1,8 @@
+/*
+Michael Scherrer
+
+Special thanks to the Rust programing language book
+*/
 use std::env;
 use std::fs;
 use std::collections::HashMap;
@@ -14,14 +19,33 @@ fn main() {
 
     contents.make_ascii_lowercase();
 
-    //println!("With text:\n{}\n", contents); //TODO
-
-    //println!("Get dom from \'hello\'\nresult: {}", 
-            //get_dom_word("hello"));
-
     println!("total dom letters: {}",
-    get_alph_words(&contents));
+    get_dom_letters(&contents));
 
+}
+
+//returns total dominant letter occurances from String
+fn get_dom_letters(text: &String) -> i32{
+        let words: Vec<&str> = text
+        .split(|c| c == ' ' || c == '\n')
+        .collect();
+
+        let mut dom: i32 = 0;
+
+        for (index, w) in words.into_iter().enumerate() {
+            if !w.contains(
+                |c: char| c.is_ascii_punctuation()
+            )
+            {
+                println!("{}: {:?} => {}", index, w,
+                get_dom_word(&w)
+                );
+
+                dom += get_dom_word(w);
+            }
+        }
+
+        dom
 }
 
 //returns the dominant letter occurances within a
@@ -46,27 +70,4 @@ fn get_dom_word(text: &str) -> i32 {
     }
 
     dom
-}
-
-fn get_alph_words(text: &String) -> i32{
-        let words: Vec<&str> = text
-        .split(|c| c == ' ' || c == '\n')
-        .collect();
-
-        let mut dom: i32 = 0;
-
-        for (index, w) in words.into_iter().enumerate() {
-            if !w.contains(
-                |c: char| c.is_ascii_punctuation()
-            )
-            {
-                println!("{}: {:?} => {}", index, w,
-                get_dom_word(&w)
-                );
-
-                dom += get_dom_word(w);
-            }
-        }
-
-        dom
 }

@@ -2,20 +2,25 @@
 Michael Scherrer
 
 Special thanks to the Rust programing language book
+
+(for reading stdin over all lines)
+https://stackoverflow.com/questions/30186037/how-can-i-read-a-single-line-from-stdin/30186553#30186553
+
 */
-use std::env;
-use std::fs;
 use std::collections::HashMap;
+use std::io::{self, BufRead};
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
 
-    // recieve first argument
-    let filename = &args[1];
+    let mut contents = String::new();
 
-    // read from file
-    let mut contents = fs::read_to_string(filename)
-        .expect("Something went wrong reading the file");
+    let stdin = io::stdin();
+    for line in stdin.lock().lines() {
+        contents.push_str(&line.unwrap());
+        contents.push_str(" ");
+    }
+
+    //println!("input: {}", contents);
 
     contents.make_ascii_lowercase();
 
@@ -27,7 +32,7 @@ fn main() {
 //returns total dominant letter occurances from String
 fn get_dom_letters(text: &String) -> i32{
         let words: Vec<&str> = text
-        .split(|c| c == ' ' || c == '\n')
+        .split(|c| c == ' ')
         .collect();
 
         let mut dom: i32 = 0;

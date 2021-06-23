@@ -29,10 +29,6 @@ upper and lowercase letters as equivalent. Examples:
 
 ## Build and Run
 
-(*These instructions are for a compiled language like
-C++. For an interpreted language like Python, delete these
-instructions and use those below.*)
-
 To build the program, type `make`. This will use the file
 named `Makefile` to compile the program.
 
@@ -55,6 +51,8 @@ text of
 [Tom Swift and His Airship](https://www.gutenberg.org/cache/epub/3005/pg3005.txt),
 from which the file `swift.txt` in this distribution was
 taken.
+
+Thanks to [The Rust book](https://doc.rust-lang.org/book/) for amazing documentation
 
 ## License
 

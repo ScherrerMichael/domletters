@@ -20,10 +20,6 @@ fn main() {
         contents.push_str(" ");
     }
 
-    //println!("input: {}", contents);
-
-    contents.make_ascii_lowercase();
-
     println!("total dom letters: {}",
     lib::dom::get_dom_letters(&contents, false));
 }

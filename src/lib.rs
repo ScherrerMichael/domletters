@@ -63,25 +63,44 @@ mod tests {
     use std::fs::read_to_string;
 
     #[test]
-    fn word_test_small() {
+    fn test_small_word() {
         assert_eq!(get_dom_letters(&String::from("abc"), false), 1);
     }
 
     #[test]
-    fn sentence_test() {
+    fn test_sentence() {
         assert_eq!(
             get_dom_letters( 
                 &String::from(
-                "The bookkeeper and the beekeeper Giggled greatly. They were in unacrimonious union.")
+                "The bookkeeper and the beekeeper Giggled greatly. 
+                They were in unacrimonious union.")
         , false)
         , 20);
     }
 
     #[test]
-    fn swift_test() {
+    fn test_swift_from_file() {
         let text = read_to_string("swift.txt")
         .expect("error reading file: swift.txt");
 
-         assert_eq!(get_dom_letters(&text, true), 71)
+         assert_eq!(get_dom_letters(&text, false), 71)
+    }
+
+    #[test]
+    fn test_punctuation_only() {
+        assert_eq!(get_dom_letters(&String::from("!@#)(&$!@_$)."), false), 0);
+    }
+
+    #[test]
+    fn test_empty_string() {
+        assert_eq!(get_dom_letters(&String::from(""), false), 0);
+    }
+
+    #[test]
+    fn test_bf_blakeslee_from_file() {
+        let text = read_to_string("blakeslee.txt")
+        .expect("error reading file: swift.txt");
+
+         assert_eq!(get_dom_letters(&text, false), 61)
     }
 }

@@ -26,6 +26,16 @@ upper and lowercase letters as equivalent. Examples:
 
 * The dominant letter count of `Arable` is 2, since `a`
   appears twice (once uppercase, once lowercase).
+  
+## Requirements
+Rust is required to build and run this project. 🦀
+
+for linux installation: 
+
+    `url --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+
+and follow the install instructions. more info [here](https://www.rust-lang.org/learn/get-started)
+
 
 ## Build and Run
 
@@ -48,11 +58,12 @@ run on `swift.txt` it will produce 71.
 
 Thanks to [Project Gutenberg](http://gutenberg.org) for the
 text of
-[Tom Swift and His Airship](https://www.gutenberg.org/cache/epub/3005/pg3005.txt),
-from which the file `swift.txt` in this distribution was
-taken.
+[Tom Swift and His Airship](https://www.gutenberg.org/cache/epub/3005/pg3005.txt) and
+[History of the Sixteenth Connecticut Volunteers](https://gutenberg.org/ebooks/31867)
 
-Thanks to [The Rust book](https://doc.rust-lang.org/book/) for amazing documentation
+from which the files `swift.txt`, and `blakeslee.txt` are from.
+
+Thanks to [The Rust book](https://doc.rust-lang.org/book/) for great documentation.
 
 ## License
 

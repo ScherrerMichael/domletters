@@ -32,7 +32,7 @@ Rust is required to build and run this project. 🦀
 
 for linux installation: 
 
-    `url --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 and follow the install instructions. more info [here](https://www.rust-lang.org/learn/get-started)
 
